@@ -84,47 +84,58 @@ void readNFA() {
 
 // Task 2: Epsilon Closure
 
+// Helper function to perform DFS for epsilon closure
+void dfsEpsilon(int state, int visited[]) {
+
+    int i;
+
+    
+
+    visited[state] = 1;
+
+    
+
+    for (i = 0; i < n; i++)
+
+        if (eps[state][i] && !visited[i])
+
+            dfsEpsilon(i, visited);
+
+}
+
 void epsilonClosure() {
 
-    int i, j, k;
+    int i, j;
+
+    int visited[MAX];
 
 
 
-    // Initialize: each state can reach itself, and direct epsilon transitions
+    // For each state, compute its epsilon closure using DFS
 
     for (i = 0; i < n; i++) {
 
-        for (j = 0; j < n; j++)
-
-            eclose[i][j] = 0;
-
-
-
-        eclose[i][i] = 1;
-
-
+        // Initialize visited array for this DFS
 
         for (j = 0; j < n; j++)
 
-            if (eps[i][j])
+            visited[j] = 0;
 
-                eclose[i][j] = 1;
+        
+
+        // Perform DFS starting from state i
+
+        dfsEpsilon(i, visited);
+
+        
+
+        // Copy visited states to epsilon closure
+
+        for (j = 0; j < n; j++)
+
+            eclose[i][j] = visited[j];
 
     }
-
-
-
-    // Compute transitive closure using Warshall's algorithm
-
-    for (k = 0; k < n; k++)
-
-        for (i = 0; i < n; i++)
-
-            for (j = 0; j < n; j++)
-
-                if (eclose[i][k] && eclose[k][j])
-
-                    eclose[i][j] = 1;
 
 }
 
