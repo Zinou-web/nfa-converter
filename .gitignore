@@ -1,0 +1,15 @@
+# Compiled binaries
+nfa_converter
+*.o
+*.out
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+
