@@ -1,12 +1,3 @@
-License
-- MIT-style (or adapt to your preferred license).
-
-If you'd like, I can also:
-- add a runnable HTML demo with interactive visualization
-- generate a small example suite and sample NFAs
-- commit the changes and create a release-ready README variant
-
-Enjoy!
 # 🔄 NFA Epsilon Transition Elimination
 
 > ✨ Efficiently remove epsilon transitions from Non-deterministic Finite Automata ✨
@@ -40,3 +31,7 @@ This program automatically removes epsilon (ε) transitions from an NFA, creatin
 ---
 
 
+<div align="center">
+
+
+</div>
